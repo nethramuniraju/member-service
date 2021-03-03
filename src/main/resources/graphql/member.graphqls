@@ -1,0 +1,37 @@
+type Member {
+	memberId: ID!
+	memberType: String
+	firstName: String
+    lastName: String
+    dob: String
+    ssn: String
+    agn: ID
+    dependentInfoList: DependentInformation
+    claim: Claim 
+}
+
+type Claim {
+    claimId: ID!
+    drugName: String
+    drugNDC: String
+    drugType: String
+    providerName: String
+    prescriberName: String
+    pharmacyName: String
+    claimAmount: ID
+}
+
+type DependentInformation{
+
+	relationship: String
+}
+
+
+
+# Root
+type Query {
+	findAllMember: [Member]!
+	findMemberById(memberId: ID): Member
+	findMemberByType(memberType:String):[Member]
+}
+
