@@ -27,6 +27,20 @@ type Claim {
 type DependentInformation{
 
     relationship: String
+    address: Address
+}
+
+type Address {
+    street: String
+    city: String
+    state: String
+    zip: ID
+    country: String
+}
+
+type DependentInformation{
+    name: String
+	relationship: String
 }
 
 
