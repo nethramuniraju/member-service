@@ -1,37 +1,39 @@
 type Member {
-	memberId: ID!
-	memberType: String
-	firstName: String
+    memberId: ID!
+    memberType: String
+    firstName: String
     lastName: String
     dob: String
     ssn: String
     agn: ID
     dependentInfoList: DependentInformation
-    claim: Claim 
+    claim: Claim
 }
 
 type Claim {
-    claimId: ID!
+    id:String!
+    claimId: String
     drugName: String
     drugNDC: String
     drugType: String
     providerName: String
     prescriberName: String
     pharmacyName: String
-    claimAmount: ID
+    claimAmount: Float
+    createdDate: String
+    memberId: String
 }
 
 type DependentInformation{
 
-	relationship: String
+    relationship: String
 }
-
 
 
 # Root
 type Query {
-	findAllMember: [Member]!
-	findMemberById(memberId: ID): Member
-	findMemberByType(memberType:String):[Member]
+    findAllMember: [Member]!
+    findMemberById(memberId: ID): Member
+    findMemberByType(memberType:String):[Member]
 }
 
