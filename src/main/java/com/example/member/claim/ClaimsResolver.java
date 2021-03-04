@@ -1,0 +1,25 @@
+package com.example.member.claim;
+
+import com.coxautodev.graphql.tools.GraphQLResolver;
+import com.example.member.claim.model.Claim;
+import com.example.member.claim.utility.ClaimsUtility;
+import com.example.member.entity.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ClaimsResolver implements GraphQLResolver<Member> {
+
+    @Autowired
+    private ClaimsUtility claimsUtility;
+
+    public Claim getClaim(Member member) {
+        try {
+            return claimsUtility.findClaimsForMember(String.valueOf(member.getMemberId())).join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+}

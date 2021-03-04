@@ -8,6 +8,7 @@ type Member {
     agn: ID
     dependentInfoList: DependentInformation
     claim: Claim
+    address:Address
 }
 
 type Claim {
@@ -27,7 +28,7 @@ type Claim {
 type DependentInformation{
 
     relationship: String
-    address: Address
+    name:String
 }
 
 type Address {
@@ -36,11 +37,6 @@ type Address {
     state: String
     zip: ID
     country: String
-}
-
-type DependentInformation{
-    name: String
-	relationship: String
 }
 
 

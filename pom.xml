@@ -16,28 +16,29 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-		
+
 		 <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>2.11.0</version>
         </dependency>
-		
 
-		
+
+
 			<!--  GraphQL -->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
@@ -49,22 +50,30 @@
 			<artifactId>graphql-java-tools</artifactId>
 			<version>5.2.4</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphql-spring-boot-starter</artifactId>
 			<version>5.0.2</version>
 		</dependency>
-		
+
 		<dependency>
   			<groupId>com.graphql-java</groupId>
   			<artifactId>graphql-java-extended-scalars</artifactId>
   			<version>15.0.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+			<version>1.2.5.RELEASE</version>
+		</dependency>
 
-
-		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>5.2.8.RELEASE</version>
+		</dependency>
 
 		<!-- Dev Only -->
 		<dependency>
@@ -74,8 +83,6 @@
 		</dependency>
 		<!-- GraphQL end -->
 
-
-		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
