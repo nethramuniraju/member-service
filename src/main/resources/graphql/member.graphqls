@@ -1,13 +1,34 @@
 type Member {
-	memberId: ID!
-	memberType: String
-	firstName: String
+    memberId: ID!
+    memberType: String
+    firstName: String
     lastName: String
     dob: String
     ssn: String
     agn: ID
     dependentInfoList: DependentInformation
-    address: Address
+    claim: Claim
+    address:Address
+}
+
+type Claim {
+    id:String!
+    claimId: String
+    drugName: String
+    drugNDC: String
+    drugType: String
+    providerName: String
+    prescriberName: String
+    pharmacyName: String
+    claimAmount: Float
+    createdDate: String
+    memberId: String
+}
+
+type DependentInformation{
+
+    relationship: String
+    name:String
 }
 
 type Address {
@@ -18,17 +39,11 @@ type Address {
     country: String
 }
 
-type DependentInformation{
-    name: String
-	relationship: String
-}
-
-
 
 # Root
 type Query {
-	findAllMember: [Member]!
-	findMemberById(memberId: ID): Member
-	findMemberByType(memberType:String):[Member]
+    findAllMember: [Member]!
+    findMemberById(memberId: ID): Member
+    findMemberByType(memberType:String):[Member]
 }
 
