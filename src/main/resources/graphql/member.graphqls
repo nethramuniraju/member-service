@@ -7,22 +7,19 @@ type Member {
     ssn: String
     agn: ID
     dependentInfoList: DependentInformation
-    claim: Claim 
+    address: Address
 }
 
-type Claim {
-    claimId: ID!
-    drugName: String
-    drugNDC: String
-    drugType: String
-    providerName: String
-    prescriberName: String
-    pharmacyName: String
-    claimAmount: ID
+type Address {
+    street: String
+    city: String
+    state: String
+    zip: ID
+    country: String
 }
 
 type DependentInformation{
-
+    name: String
 	relationship: String
 }
 

@@ -7,8 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DependentInformation {
+public class Address {
 
-    private String name;
-    private String relationship;
+    private String street;
+    private String city;
+    private String state;
+    private int zip;
+    private String country;
+
 }
