@@ -1,17 +1,12 @@
 package com.example.member.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.example.member.claim.model.Claim;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-
-import java.lang.annotation.Documented;
-import java.util.List;
 
 
 @Data
@@ -34,5 +29,4 @@ public class Member {
     private DependentInformation dependentInfoList;
     private Address address;
     private Claim claim;
-
 }

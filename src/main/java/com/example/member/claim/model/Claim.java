@@ -1,22 +1,24 @@
-package com.example.member.entity;
+package com.example.member.claim.model;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Claim {
 
+    private String id;
     private String claimId;
     private String drugName;
     private String drugNDC;
     private String drugType;
-    private String providerName;
     private String prescriberName;
+    private String providerName;
     private String pharmacyName;
-    private int claimAmount;
+    private String createdDate;
+    private double claimAmount;
+    private String memberId;
 }

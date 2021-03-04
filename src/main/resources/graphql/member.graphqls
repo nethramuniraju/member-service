@@ -10,6 +10,7 @@ type Member {
     claim:Claim
     address: Address
 }
+
 input MemberInput {
     memberId: ID!
     memberType: String
@@ -22,19 +23,18 @@ input MemberInput {
     address: AddressInput
 }
 
-enum Relationship{
-    SPOUSE
-    CHILD
-}
-type Claim{
-    claimId:String
-    drugName:String
-    drugNDC:String
-    drugType:String
-    providerName:String
-    prescriberName:String
-    pharmacyName:String
-    claimAmount:String
+type Claim {
+    id:String!
+    claimId: String
+    drugName: String
+    drugNDC: String
+    drugType: String
+    providerName: String
+    prescriberName: String
+    pharmacyName: String
+    claimAmount: Float
+    createdDate: String
+    memberId: String
 }
 
 input ClaimInput{
@@ -46,6 +46,22 @@ input ClaimInput{
     prescriberName:String
     pharmacyName:String
     claimAmount:String
+}
+
+type DependentInformation{
+    relationship: String
+    name:String
+}
+
+input DependentInformationInput {
+    name: String
+    relationship: Relationship
+}
+
+
+enum Relationship{
+    SPOUSE
+    CHILD
 }
 
 type Address {
@@ -63,14 +79,6 @@ input AddressInput {
     zip: ID
     country: String
 
-}
-type DependentInformation {
-    name: String
-    relationship: Relationship
-}
-input DependentInformationInput {
-    name: String
-    relationship: Relationship
 }
 
 # Root
