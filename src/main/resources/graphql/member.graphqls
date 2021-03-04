@@ -38,14 +38,15 @@ type Claim {
 }
 
 input ClaimInput{
-    claimId:String
+    claimId:String!
     drugName:String
     drugNDC:String
     drugType:String
     providerName:String
     prescriberName:String
     pharmacyName:String
-    claimAmount:String
+    claimAmount:Float
+    memberId:ID!
 }
 
 type DependentInformation{
@@ -57,7 +58,6 @@ input DependentInformationInput {
     name: String
     relationship: Relationship
 }
-
 
 enum Relationship{
     SPOUSE
@@ -89,7 +89,7 @@ type Query {
 }
 
 type Mutation{
-    createMember(input:MemberInput):Member
+    createMember(input:MemberInput, claim:ClaimInput):Member
     deleteMember(memberId:ID!):String
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 

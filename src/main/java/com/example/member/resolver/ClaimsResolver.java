@@ -1,4 +1,4 @@
-package com.example.member.claim;
+package com.example.member.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.example.member.claim.model.Claim;
