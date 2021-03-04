@@ -1,8 +1,7 @@
 package com.example.member;
 
-import com.example.member.entity.Claim;
-import com.example.member.entity.DependentInformation;
-import com.example.member.entity.Member;
+import com.coxautodev.graphql.tools.SchemaParserDictionary;
+import com.example.member.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,7 +22,10 @@ public class MemberServiceApplication  implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(MemberServiceApplication.class, args);
 	}
-
+	@Bean
+	public SchemaParserDictionary schemaParserDictionary() {
+		return new SchemaParserDictionary().add(DependentInformationInput.class).add(AddressInput.class);
+	}
 	@Override
 	public void run(String... args) throws Exception {
 

@@ -1,15 +1,13 @@
 package com.example.member.entity;
 
 import com.example.member.Relationship;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class DependentInformation {
-
+public class DependentInformationInput {
     private String name;
     private Relationship relationship;
 }
+

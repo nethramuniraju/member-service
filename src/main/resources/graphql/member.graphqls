@@ -1,13 +1,40 @@
 type Member {
-	memberId: ID!
-	memberType: String
-	firstName: String
+    memberId: ID!
+    memberType: String
+    firstName: String
     lastName: String
     dob: String
     ssn: String
     agn: ID
     dependentInfoList: DependentInformation
+    claim:Claim
     address: Address
+}
+
+enum Relationship{
+    SPOUSE
+    CHILD
+}
+type Claim{
+    claimId:String
+    drugName:String
+    drugNDC:String
+    drugType:String
+    providerName:String
+    prescriberName:String
+    pharmacyName:String
+    claimAmount:String
+}
+
+input ClaimInput{
+claimId:String
+drugName:String
+drugNDC:String
+drugType:String
+providerName:String
+prescriberName:String
+pharmacyName:String
+claimAmount:String
 }
 
 type Address {
@@ -18,17 +45,43 @@ type Address {
     country: String
 }
 
-type DependentInformation{
-    name: String
-	relationship: String
+input AddressInput {
+    street: String
+    city: String
+    state: String
+    zip: ID
+    country: String
+
 }
-
-
+type DependentInformation {
+    name: String
+    relationship: Relationship
+}
+input DependentInformationInput {
+    name: String
+    relationship: Relationship
+}
 
 # Root
 type Query {
-	findAllMember: [Member]!
-	findMemberById(memberId: ID): Member
-	findMemberByType(memberType:String):[Member]
+    findAllMember: [Member]!
+    findMemberById(memberId: ID): Member
+    findMemberByType(memberType:String):[Member]
 }
+
+type Mutation{
+    createMember(memberId:ID!,firstName:String!,lastName:String!,
+        dependentInfoList:DependentInformationInput,address:AddressInput):Member
+    deleteMember(memberId:ID!):String
+    updateMember(memberId:ID!,firstName:String, lastName:String):String
+
+}
+
+type Schema{
+    query:Query
+    mutation:Mutation
+}
+
+
+
 

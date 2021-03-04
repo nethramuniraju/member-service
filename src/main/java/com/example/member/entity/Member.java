@@ -31,8 +31,8 @@ public class Member {
     protected String dob;
     protected String ssn;
     protected int agn;
-    private DependentInformation dependentInfoList;
-    private Address address;
-    //private Claim claim;
+    private DependentInformationInput dependentInfoList;
+    private AddressInput address;
+    private Claim claim;
 
 }
