@@ -22,10 +22,7 @@ public class MemberServiceApplication  implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(MemberServiceApplication.class, args);
 	}
-	@Bean
-	public SchemaParserDictionary schemaParserDictionary() {
-		return new SchemaParserDictionary().add(DependentInformationInput.class).add(AddressInput.class);
-	}
+
 	@Override
 	public void run(String... args) throws Exception {
 

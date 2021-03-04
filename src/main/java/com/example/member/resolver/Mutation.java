@@ -23,15 +23,8 @@ public class Mutation implements GraphQLMutationResolver {
 		this.memberRepository = memberRepository;
 	}
 
-	public Member createMember(Integer memberId, String firstName, String lastName,
-							   DependentInformationInput dependentInfo, AddressInput address) {
-		Member member = new Member();
-		member.setMemberId(memberId);
-		member.setFirstName(firstName);
-		member.setLastName(lastName);
-		member.setDependentInfoList(dependentInfo);
-		member.setAddress(address);
-		return memberRepository.save(member);
+	public Member createMember(Member input) {
+		return memberRepository.save(input);
 	}
 
 

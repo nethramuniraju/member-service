@@ -10,6 +10,17 @@ type Member {
     claim:Claim
     address: Address
 }
+input MemberInput {
+    memberId: ID!
+    memberType: String
+    firstName: String
+    lastName: String
+    dob: String
+    ssn: String
+    agn: ID
+    dependentInfoList: DependentInformationInput
+    address: AddressInput
+}
 
 enum Relationship{
     SPOUSE
@@ -27,14 +38,14 @@ type Claim{
 }
 
 input ClaimInput{
-claimId:String
-drugName:String
-drugNDC:String
-drugType:String
-providerName:String
-prescriberName:String
-pharmacyName:String
-claimAmount:String
+    claimId:String
+    drugName:String
+    drugNDC:String
+    drugType:String
+    providerName:String
+    prescriberName:String
+    pharmacyName:String
+    claimAmount:String
 }
 
 type Address {
@@ -70,13 +81,11 @@ type Query {
 }
 
 type Mutation{
-    createMember(memberId:ID!,firstName:String!,lastName:String!,
-        dependentInfoList:DependentInformationInput,address:AddressInput):Member
+    createMember(input:MemberInput):Member
     deleteMember(memberId:ID!):String
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 
 }
-
 type Schema{
     query:Query
     mutation:Mutation
