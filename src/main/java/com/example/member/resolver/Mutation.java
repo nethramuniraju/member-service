@@ -1,45 +1,45 @@
 package com.example.member.resolver;
 
 
-import com.example.member.entity.*;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.example.member.claim.model.Claim;
+import com.example.member.claim.utility.ClaimsUtility;
+import com.example.member.entity.Member;
+import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import com.example.member.repository.MemberRepository;
-
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-
-import java.util.Optional;
 
 
 @Component
+@AllArgsConstructor
 public class Mutation implements GraphQLMutationResolver {
-	private MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
-	@Autowired
-	public Mutation(MemberRepository memberRepository) {
-		this.memberRepository = memberRepository;
-	}
-
-	public Member createMember(Member input) {
-		return memberRepository.save(input);
-	}
+    private ClaimsUtility claimsUtility;
 
 
-	public String deleteMember(int memberId) throws JsonMappingException, JsonProcessingException
-	{
-		memberRepository.deleteById(memberId);
-		return  "Member deleted successfully!";
-	}
+    public Member createMember(Member input, Claim claim) {
 
-	public String updateMember(int memberId, String firstName, String lastName){
-				Member newObj=new Member();
-				newObj.setMemberId(memberId);
-				newObj.setFirstName(firstName);
-				newObj.setLastName(lastName);
-			    memberRepository.save(newObj);
-		return "Member is updated successfully";
-	}
+        //creates a claim for given member
+        claimsUtility.createClaim(claim);
+
+        return memberRepository.save(input);
+    }
+
+
+    public String deleteMember(int memberId) throws JsonMappingException, JsonProcessingException {
+        memberRepository.deleteById(memberId);
+        return "Member deleted successfully!";
+    }
+
+    public String updateMember(int memberId, String firstName, String lastName) {
+        Member newObj = new Member();
+        newObj.setMemberId(memberId);
+        newObj.setFirstName(firstName);
+        newObj.setLastName(lastName);
+        memberRepository.save(newObj);
+        return "Member is updated successfully";
+    }
 }
