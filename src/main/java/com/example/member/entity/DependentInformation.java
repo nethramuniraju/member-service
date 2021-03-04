@@ -1,5 +1,6 @@
 package com.example.member.entity;
 
+import com.example.member.Relationship;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class DependentInformation {
 
     private String name;
-    private String relationship;
+    private Relationship relationship;
 }

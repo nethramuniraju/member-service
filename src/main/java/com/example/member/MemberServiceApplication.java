@@ -1,5 +1,8 @@
 package com.example.member;
 
+
+import com.coxautodev.graphql.tools.SchemaParserDictionary;
+import com.example.member.entity.*;
 import com.example.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
