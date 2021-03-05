@@ -2,8 +2,8 @@ package com.example.member.resolver;
 
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.example.member.claim.model.Claim;
-import com.example.member.claim.utility.ClaimsUtility;
+import com.example.member.entity.Claim;
+import com.example.member.resolver.ClaimsUtility;
 import com.example.member.entity.Member;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;

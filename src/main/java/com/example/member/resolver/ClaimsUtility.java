@@ -1,6 +1,6 @@
-package com.example.member.claim.utility;
+package com.example.member.resolver;
 
-import com.example.member.claim.model.Claim;
+import com.example.member.entity.Claim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -18,13 +18,13 @@ import java.util.concurrent.CompletableFuture;
 @Component
 public class ClaimsUtility {
 
-    private final String GET_URL = "http://localhost:8091/v1/claim/%s";
-    private final String POST_URL = "http://localhost:8091/v1/claim";
+    private final String GET_URL = "http://localhost:8090/v1/claim/%s";
+    private final String POST_URL = "http://localhost:8090/v1/claim";
     @Autowired
     private RestTemplate restTemplate;
 
-    @Async
-    @Retryable(value = {IOException.class, ResourceAccessException.class},
+    @Async("asyncExecutor")//Change 3
+    @Retryable(value = {IOException.class, ResourceAccessException.class,RuntimeException.class},//Change 4
             maxAttempts = 3, backoff = @Backoff(delay = 100))
     public CompletableFuture<Claim> findClaimsForMember(String memberId) throws InterruptedException {
 

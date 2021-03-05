@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.concurrent.Executor;
 
 @SpringBootApplication
-@EnableAsync
+//@EnableAsync-CHange 1
 @EnableRetry
 public class MemberServiceApplication implements CommandLineRunner {
 
@@ -37,8 +37,8 @@ public class MemberServiceApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
     }
-
-    @Bean
+//CHange 2-Move this to a separate EnableAsync class
+    /*@Bean
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);
@@ -47,6 +47,6 @@ public class MemberServiceApplication implements CommandLineRunner {
         executor.setThreadNamePrefix("Async-");
         executor.initialize();
         return executor;
-    }
+    }*/
 
 }

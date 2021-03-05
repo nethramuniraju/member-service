@@ -1,6 +1,6 @@
 package com.example.member.entity;
 
-import com.example.member.claim.model.Claim;
+import com.example.member.entity.Claim;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
