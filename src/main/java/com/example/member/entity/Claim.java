@@ -1,4 +1,4 @@
-package com.example.member.claim.model;
+package com.example.member.entity;
 
 
 import lombok.AllArgsConstructor;

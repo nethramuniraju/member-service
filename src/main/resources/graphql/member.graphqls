@@ -37,6 +37,7 @@ type Claim {
     memberId: String
 }
 
+
 input ClaimInput{
     claimId:String!
     drugName:String
@@ -48,6 +49,7 @@ input ClaimInput{
     claimAmount:Float
     memberId:ID!
 }
+
 
 type DependentInformation{
     relationship: String

@@ -1,6 +1,6 @@
-package com.example.member.claim.utility;
+package com.example.member.resolver;
 
-import com.example.member.claim.model.Claim;
+import com.example.member.entity.Claim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -24,7 +24,7 @@ public class ClaimsUtility {
     private RestTemplate restTemplate;
 
     @Async
-    @Retryable(value = {IOException.class, ResourceAccessException.class},
+    @Retryable(value = {IOException.class, ResourceAccessException.class,RuntimeException.class},
             maxAttempts = 3, backoff = @Backoff(delay = 100))
     public CompletableFuture<Claim> findClaimsForMember(String memberId) throws InterruptedException {
 

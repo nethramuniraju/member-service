@@ -1,6 +1,5 @@
 package com.example.member.entity;
 
-import com.example.member.Relationship;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
