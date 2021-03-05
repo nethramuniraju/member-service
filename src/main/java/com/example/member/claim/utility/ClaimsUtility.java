@@ -18,8 +18,8 @@ import java.util.concurrent.CompletableFuture;
 @Component
 public class ClaimsUtility {
 
-    private final String GET_URL = "http://localhost:8091/v1/claim/%s";
-    private final String POST_URL = "http://localhost:8091/v1/claim";
+    private final String GET_URL = "http://localhost:8090/v1/claim/%s";
+    private final String POST_URL = "http://localhost:8090/v1/claim";
     @Autowired
     private RestTemplate restTemplate;
 
