@@ -23,8 +23,8 @@ public class ClaimsUtility {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Async("asyncExecutor")//Change 3
-    @Retryable(value = {IOException.class, ResourceAccessException.class,RuntimeException.class},//Change 4
+    @Async
+    @Retryable(value = {IOException.class, ResourceAccessException.class,RuntimeException.class},
             maxAttempts = 3, backoff = @Backoff(delay = 100))
     public CompletableFuture<Claim> findClaimsForMember(String memberId) throws InterruptedException {
 

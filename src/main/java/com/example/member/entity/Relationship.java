@@ -1,4 +1,4 @@
-package com.example.member;
+package com.example.member.entity;
 
 public enum Relationship {
     SPOUSE,
