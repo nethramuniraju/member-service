@@ -3,7 +3,6 @@ package com.example.member.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.member.entity.Claim;
-import com.example.member.resolver.ClaimsUtility;
 import com.example.member.entity.Member;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,12 +19,12 @@ public class Mutation implements GraphQLMutationResolver {
     private ClaimsUtility claimsUtility;
 
 
-    public Member createMember(Member input, Claim claim) {
+    public String createMember(Member input, Claim claim) {
 
         //creates a claim for given member
         claimsUtility.createClaim(claim);
-
-        return memberRepository.save(input);
+        memberRepository.save(input);
+        return "Member is created with member id " + input.getMemberId();
     }
 
 

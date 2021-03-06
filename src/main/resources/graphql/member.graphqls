@@ -91,7 +91,7 @@ type Query {
 }
 
 type Mutation{
-    createMember(input:MemberInput, claim:ClaimInput):Member
+    createMember(input:MemberInput, claim:ClaimInput):String
     deleteMember(memberId:ID!):String
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 
