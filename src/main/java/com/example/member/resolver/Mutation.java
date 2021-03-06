@@ -4,6 +4,7 @@ package com.example.member.resolver;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.member.entity.Claim;
 import com.example.member.entity.Member;
+import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -19,16 +20,20 @@ public class Mutation implements GraphQLMutationResolver {
     private ClaimsUtility claimsUtility;
 
 
-    public String createMember(Member input, Claim claim) {
+    public String createMember(Member member, Claim claim) throws Exception {
 
-        //creates a claim for given member
-        if (null != claim) {
-            claim.setMemberId(String.valueOf(input.getMemberId()));
-            claimsUtility.createClaim(claim);
+        try {
+            //creates a claim for given member
+            if (null != claim) {
+                claim.setMemberId(String.valueOf(member.getMemberId()));
+                claimsUtility.createClaim(claim);
+            }
+        } catch (Exception e) {
+            throw new CustomGraphQLException(404, "Couldn't reach claims service hence claims can't be created");
         }
 
-        memberRepository.save(input);
-        return "Member is created with member id " + input.getMemberId();
+        memberRepository.save(member);
+        return "Member is created with member id " + member.getMemberId();
     }
 
 
