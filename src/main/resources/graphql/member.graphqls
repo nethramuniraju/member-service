@@ -1,22 +1,3 @@
-# Root
-type Schema{
-    query:Query
-    mutation:Mutation
-}
-
-type Query {
-    findAllMember: [Member]!
-    findMemberById(memberId: ID): Member
-    findMemberByType(memberType:String):[Member]
-    findMember(memberId: ID,memberType:String): Member
-}
-
-type Mutation{
-    createMember(input:MemberInput, claim:ClaimInput):Member
-    deleteMember(memberId:ID!):String
-    updateMember(memberId:ID!,firstName:String, lastName:String):String
-}
-
 type Member {
     memberId: ID!
     memberType: String
@@ -28,6 +9,18 @@ type Member {
     dependentInfoList: DependentInformation
     claim:Claim
     address: Address
+}
+
+input MemberInput {
+    memberId: ID!
+    memberType: String
+    firstName: String
+    lastName: String
+    dob: String
+    ssn: String
+    agn: ID
+    dependentInfoList: DependentInformationInput
+    address: AddressInput
 }
 
 type Claim {
@@ -45,9 +38,26 @@ type Claim {
 }
 
 
+input ClaimInput{
+    claimId:String!
+    drugName:String
+    drugNDC:String
+    drugType:String
+    providerName:String
+    prescriberName:String
+    pharmacyName:String
+    claimAmount:Float
+}
+
+
 type DependentInformation{
     relationship: String
     name:String
+}
+
+input DependentInformationInput {
+    name: String
+    relationship: Relationship
 }
 
 enum Relationship{
@@ -63,43 +73,32 @@ type Address {
     country: String
 }
 
-input MemberInput {
-    memberId: ID!
-    memberType: String
-    firstName: String
-    lastName: String
-    dob: String
-    ssn: String
-    agn: ID
-    dependentInfoList: DependentInformationInput
-    address: AddressInput
-}
-
-input ClaimInput{
-    claimId:String!
-    drugName:String
-    drugNDC:String
-    drugType:String
-    providerName:String
-    prescriberName:String
-    pharmacyName:String
-    claimAmount:Float
-    memberId:ID!
-}
-
-input DependentInformationInput {
-    name: String
-    relationship: Relationship
-}
-
 input AddressInput {
     street: String
     city: String
     state: String
     zip: ID
     country: String
+
 }
 
+# Root
+type Query {
+    findAllMember: [Member]!
+    findMemberById(memberId: ID): Member
+    findMemberByType(memberType:String):[Member]
+}
+
+type Mutation{
+    createMember(input:MemberInput, claim:ClaimInput):String
+    deleteMember(memberId:ID!):String
+    updateMember(memberId:ID!,firstName:String, lastName:String):String
+
+}
+type Schema{
+    query:Query
+    mutation:Mutation
+}
 
 
 
