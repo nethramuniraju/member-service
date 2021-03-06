@@ -36,7 +36,6 @@ public class ClaimsUtility {
 
     public void createClaim(Claim claim) {
         HttpEntity<Claim> request = new HttpEntity<>(claim);
-
         ResponseEntity<Claim> response = restTemplate
                 .exchange(POST_URL, HttpMethod.POST, request, Claim.class);
         System.out.println(response.getBody());
