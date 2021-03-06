@@ -1,8 +1,7 @@
 package com.example.member;
 
 
-import com.coxautodev.graphql.tools.SchemaParserDictionary;
-import com.example.member.entity.*;
+import com.example.member.exception.CustomGraphQLErrorHandler;
 import com.example.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,6 +30,11 @@ public class MemberServiceApplication implements CommandLineRunner {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public CustomGraphQLErrorHandler customGraphQLErrorHandler() {
+        return new CustomGraphQLErrorHandler();
     }
 
     @Override

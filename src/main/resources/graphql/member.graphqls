@@ -1,3 +1,21 @@
+# Root
+type Query {
+    findAllMember: [Member]!
+    findMemberById(memberId: ID): Member
+    findMemberByType(memberType:String):[Member]
+}
+
+type Mutation{
+    createMember(member:MemberInput, claim:ClaimInput):String
+    deleteMember(memberId:ID!):String
+    updateMember(memberId:ID!,firstName:String, lastName:String):String
+}
+
+type Schema{
+    query:Query
+    mutation:Mutation
+}
+
 type Member {
     memberId: ID!
     memberType: String
@@ -79,28 +97,8 @@ input AddressInput {
     state: String
     zip: ID
     country: String
-
 }
 
-# Root
-type Query {
-    findAllMember: [Member]!
-    findMemberById(memberId: ID): Member
-    findMemberByType(memberType:String):[Member]
-    findMember(memberId: ID,memberType:String) : Member
-}
-
-type Mutation{
-    createMember(input:MemberInput, claim:ClaimInput):String
-    deleteMember(memberId:ID!):String
-    updateMember(memberId:ID!,firstName:String, lastName:String):String
-
-}
-
-type Schema{
-    query:Query
-    mutation:Mutation
-}
 
 
 
