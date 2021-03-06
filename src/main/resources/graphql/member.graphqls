@@ -87,6 +87,7 @@ type Query {
     findAllMember: [Member]!
     findMemberById(memberId: ID): Member
     findMemberByType(memberType:String):[Member]
+    findMember(memberId: ID,memberType:String) : Member
 }
 
 type Mutation{
