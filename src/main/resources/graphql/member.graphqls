@@ -47,7 +47,6 @@ input ClaimInput{
     prescriberName:String
     pharmacyName:String
     claimAmount:Float
-    memberId:ID!
 }
 
 

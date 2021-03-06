@@ -22,7 +22,11 @@ public class Mutation implements GraphQLMutationResolver {
     public String createMember(Member input, Claim claim) {
 
         //creates a claim for given member
-        claimsUtility.createClaim(claim);
+        if (null != claim) {
+            claim.setMemberId(String.valueOf(input.getMemberId()));
+            claimsUtility.createClaim(claim);
+        }
+
         memberRepository.save(input);
         return "Member is created with member id " + input.getMemberId();
     }
