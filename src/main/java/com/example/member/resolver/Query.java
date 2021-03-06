@@ -6,7 +6,9 @@ import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class Query implements GraphQLQueryResolver {
 
     private MemberRepository memberRepository;
 
+    //find all members
     public Iterable<Member> findAllMember() {
         List<Member> memberList = memberRepository.findAll();
         if (memberList.isEmpty())
@@ -24,6 +27,7 @@ public class Query implements GraphQLQueryResolver {
         return memberList;
     }
 
+    //find member by Id
     public Member findMemberById(Integer memberId) {
         log.info("Inside Query");
         Member member = memberRepository.findByMemberId(memberId);
@@ -32,11 +36,30 @@ public class Query implements GraphQLQueryResolver {
         return member;
     }
 
+    //find member by type
     public List<Member> findMemberByType(String memberType) {
 
         List<Member> memberList = memberRepository.findByMemberType(memberType);
         if (memberList.isEmpty())
             throw new CustomGraphQLException(400, "Members not found in mongo collection for given member type");
         return memberList;
+    }
+
+    //find member by Id and type
+    public Member findMember(Integer memberId, String memberType) {
+        Member id =memberRepository.findByMemberId(memberId);
+        int mId=id.getMemberId();
+        String type=id.getMemberType();
+
+        if(type.equals(memberType)){
+            return memberRepository.findByMemberId(memberId);
+        }
+        else{
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Member not found"
+            );
+        }
+
+        //return null;
     }
 }
