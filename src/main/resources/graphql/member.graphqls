@@ -95,6 +95,7 @@ type Mutation{
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 
 }
+
 type Schema{
     query:Query
     mutation:Mutation
