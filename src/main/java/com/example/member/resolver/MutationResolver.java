@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class Mutation implements GraphQLMutationResolver {
+public class MutationResolver implements GraphQLMutationResolver {
     private MemberRepository memberRepository;
 
     private ClaimsUtility claimsUtility;
@@ -29,7 +29,7 @@ public class Mutation implements GraphQLMutationResolver {
                 claimsUtility.createClaim(claim);
             }
         } catch (Exception e) {
-            throw new CustomGraphQLException(404, "Couldn't reach claims service hence claims can't be created");
+            throw new CustomGraphQLException("Couldn't reach claims service hence claims can't be created");
         }
 
         memberRepository.save(member);
