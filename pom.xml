@@ -14,19 +14,11 @@
     <name>member-service</name>
     <description>member-service</description>
 
-<<<<<<< HEAD
-    <properties>
-        <java.version>11</java.version>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-        <graphql.kickstart.version>6.0.0</graphql.kickstart.version>
-    </properties>
-=======
 	<properties>
 		<java.version>11</java.version>
 		<!--<spring-cloud.version>Greenwich.SR1</spring-cloud.version>-->
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 	</properties>
->>>>>>> 1f8319f5922d8df80ab7216efd85aba6096b840d
 
     <dependencies>
 
@@ -40,24 +32,11 @@
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
-<<<<<<< HEAD
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>2.11.0</version>
         </dependency>
-=======
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
->>>>>>> 1f8319f5922d8df80ab7216efd85aba6096b840d
 
         <!--  GraphQL -->
 
