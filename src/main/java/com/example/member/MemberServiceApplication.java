@@ -14,7 +14,8 @@ import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.client.RestTemplate;
-
+import graphql.execution.instrumentation.Instrumentation;
+import graphql.execution.instrumentation.tracing.TracingInstrumentation;
 import java.util.concurrent.Executor;
 
 @SpringBootApplication
@@ -36,6 +37,12 @@ public class MemberServiceApplication implements CommandLineRunner {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+    
+    @Bean
+    Instrumentation instrumentation() {
+        return new TracingInstrumentation();
+    }
+
 
     @Bean
     public CustomGraphQLErrorHandler customGraphQLErrorHandler() {
