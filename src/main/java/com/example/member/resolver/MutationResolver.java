@@ -1,20 +1,19 @@
 package com.example.member.resolver;
 
-
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.member.entity.Claim;
 import com.example.member.entity.Member;
 import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 
 @Component
 @AllArgsConstructor
-public class Mutation implements GraphQLMutationResolver {
+public class MutationResolver implements GraphQLMutationResolver {
     private MemberRepository memberRepository;
 
     private ClaimsUtility claimsUtility;
@@ -29,7 +28,7 @@ public class Mutation implements GraphQLMutationResolver {
                 claimsUtility.createClaim(claim);
             }
         } catch (Exception e) {
-            throw new CustomGraphQLException(404, "Couldn't reach claims service hence claims can't be created");
+            throw new CustomGraphQLException("Couldn't reach claims service hence claims can't be created");
         }
 
         memberRepository.save(member);

@@ -1,6 +1,5 @@
 package com.example.member.entity;
 
-import com.example.member.entity.Claim;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +28,8 @@ public class Member {
     private DependentInformation dependentInfoList;
     private Address address;
     private Claim claim;
+
+    public Member(int memberId) {
+        this.memberId = memberId;
+    }
 }
