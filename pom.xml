@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -14,15 +15,14 @@
     <name>member-service</name>
     <description>member-service</description>
 
-	<properties>
-		<java.version>11</java.version>
-		<!--<spring-cloud.version>Greenwich.SR1</spring-cloud.version>-->
-		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+    <properties>
+        <java.version>11</java.version>
+        <!--<spring-cloud.version>Greenwich.SR1</spring-cloud.version> -->
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <graphql.kickstart.version>7.1.0</graphql.kickstart.version>
-	</properties>
+    </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -76,10 +76,31 @@
         <!-- GraphQL end -->
 
         <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>voyager-spring-boot-starter</artifactId>
+            <version>11.0.0</version>
+        </dependency>
+
+
+        <!-- GraphQL end -->
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>playground-spring-boot-starter</artifactId>
+            <version>5.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-servlet</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
