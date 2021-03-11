@@ -1,13 +1,12 @@
 package com.example.member.resolver;
 
-
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.member.entity.Claim;
 import com.example.member.entity.Member;
 import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

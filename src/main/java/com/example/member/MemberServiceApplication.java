@@ -21,7 +21,6 @@ import java.util.concurrent.Executor;
 @EnableEurekaClient
 @EnableAsync
 @EnableRetry
-
 public class MemberServiceApplication implements CommandLineRunner {
 
     @Autowired

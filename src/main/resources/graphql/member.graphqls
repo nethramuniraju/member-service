@@ -11,9 +11,14 @@ type Mutation{
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 }
 
+type Subscription{
+    findAllMemberSubscription:[Member]
+}
+
 type Schema{
     query:Query
     mutation:Mutation
+    subscription:Subscription
 }
 
 type Member {
