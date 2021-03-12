@@ -3,6 +3,7 @@ type Query {
     findAllMember: [Member]!
     findMemberById(memberId: ID): Member
     findMemberByType(memberType:String):[Member]
+    findMemberAdditionalInfo(memberId:ID):[AdditionalInfo]
 }
 
 type Mutation{
@@ -10,6 +11,7 @@ type Mutation{
     deleteMember(memberId:ID!):String
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 }
+union AdditionalInfo=DependentInformation | Address
 
 type Subscription{
     findAllMemberSubscription:[Member]
