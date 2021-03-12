@@ -73,6 +73,19 @@
             <version>${graphql.kickstart.version}</version>
             <scope>runtime</scope>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>voyager-spring-boot-starter</artifactId>
+            <version>${graphql.kickstart.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>playground-spring-boot-starter</artifactId>
+            <version>${graphql.kickstart.version}</version>
+        </dependency>
         <!-- GraphQL end -->
 
         <dependency>
