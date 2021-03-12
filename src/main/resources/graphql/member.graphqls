@@ -1,4 +1,6 @@
 # Root
+union AdditionalInfo=DependentInformation | Address
+
 type Query {
     findAllMember: [Member]!
     findMemberById(memberId: ID): Member
@@ -11,16 +13,9 @@ type Mutation{
     deleteMember(memberId:ID!):String
     updateMember(memberId:ID!,firstName:String, lastName:String):String
 }
-union AdditionalInfo=DependentInformation | Address
 
 type Subscription{
     findAllMemberSubscription:[Member]
-}
-
-type Schema{
-    query:Query
-    mutation:Mutation
-    subscription:Subscription
 }
 
 type Member {
