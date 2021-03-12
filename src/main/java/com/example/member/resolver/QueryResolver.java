@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -60,5 +61,19 @@ public class QueryResolver implements GraphQLQueryResolver {
             );
         }
         //return null;
+    }
+
+    /**
+     * find dependant and Address details for the given member
+     * @param memberId
+     * @return
+     */
+    public List<Object> findMemberAdditionalInfo(Integer memberId){
+        List listObj=new ArrayList<>();
+        Member memberObj=memberRepository.findByMemberId(memberId);
+        listObj.add(memberObj.getAddress());
+        listObj.add(memberObj.getDependentInfoList());
+        //   listObj.add(memberObj.getClaim());
+        return listObj;
     }
 }
