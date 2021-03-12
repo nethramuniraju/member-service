@@ -21,7 +21,7 @@ public class SubscriptionResolver implements GraphQLSubscriptionResolver {
 
     public Publisher<List<Member>> findAllMemberSubscription() {
 
-        return Flux.interval(Duration.ofSeconds(5))
+        return Flux.interval(Duration.ofSeconds(10))
                 .map(num -> memberRepository.findAll());
     }
 }
