@@ -1,3 +1,5 @@
+scalar Date
+
 # Root
 union AdditionalInfo=DependentInformation | Address
 
@@ -26,6 +28,7 @@ type Member {
     dob: String
     ssn: String
     agn: ID
+    createdOn: Date
     dependentInfoList: DependentInformation
     claim:Claim
     address: Address

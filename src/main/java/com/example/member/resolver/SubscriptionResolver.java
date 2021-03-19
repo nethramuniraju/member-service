@@ -3,7 +3,7 @@ package com.example.member.resolver;
 
 import com.example.member.entity.Member;
 import com.example.member.repository.MemberRepository;
-import graphql.kickstart.tools.GraphQLSubscriptionResolver;
+import com.coxautodev.graphql.tools.GraphQLSubscriptionResolver;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

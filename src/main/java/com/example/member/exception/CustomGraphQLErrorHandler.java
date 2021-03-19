@@ -2,14 +2,14 @@ package com.example.member.exception;
 
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
-import graphql.kickstart.execution.error.GraphQLErrorHandler;
+//import graphql.kickstart.execution.error.GraphQLErrorHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class CustomGraphQLErrorHandler implements GraphQLErrorHandler {
+public class CustomGraphQLErrorHandler  {
 
     public CustomGraphQLErrorHandler() {
     }

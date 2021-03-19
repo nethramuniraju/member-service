@@ -3,6 +3,9 @@ package com.example.member.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -25,6 +28,7 @@ public class Member {
     protected String dob;
     protected String ssn;
     protected int agn;
+    private LocalDate createdOn;
     private DependentInformation dependentInfoList;
     private Address address;
     private Claim claim;

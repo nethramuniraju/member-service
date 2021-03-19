@@ -6,9 +6,13 @@ import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import graphql.kickstart.tools.GraphQLMutationResolver;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import kotlin.ExtensionFunctionType;
 import lombok.AllArgsConstructor;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -18,6 +22,9 @@ public class MutationResolver implements GraphQLMutationResolver {
     private MemberRepository memberRepository;
 
     private ClaimsUtility claimsUtility;
+    
+    @Autowired
+    private ScalarConfig ScalarConfig;
 
     public String createMember(Member member, Claim claim) throws Exception {
 
@@ -25,6 +32,7 @@ public class MutationResolver implements GraphQLMutationResolver {
             //creates a claim for given member
             if (null != claim) {
                 claim.setMemberId(String.valueOf(member.getMemberId()));
+                member.setCreatedOn(LocalDate.now());
                 claimsUtility.createClaim(claim);
             }
         } catch (Exception e) {

@@ -55,22 +55,40 @@
         <!-- Dev Only -->
 
         <dependency>
-            <groupId>com.graphql-java-kickstart</groupId>
+            <groupId>com.graphql-java</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>
-            <version>${graphql.kickstart.version}</version>
+            <version>5.0.2</version>
         </dependency>
         <!-- GraphQL testing facilities -->
         <dependency>
-            <groupId>com.graphql-java-kickstart</groupId>
+            <groupId>com.graphql-java</groupId>
             <artifactId>graphql-spring-boot-starter-test</artifactId>
-            <version>${graphql.kickstart.version}</version>
+            <version>5.0.2</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java-tools</artifactId>
+			<version>5.2.4</version>
+		</dependency>
+        
+        <dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java</artifactId>
+			<version>11.0</version>
+		</dependency>
+        
+        <dependency>
+  			<groupId>com.graphql-java</groupId>
+  			<artifactId>graphql-java-extended-scalars</artifactId>
+  			<version>15.0.0</version>
+		</dependency>
         <!-- to embed GraphiQL tool -->
         <dependency>
-            <groupId>com.graphql-java-kickstart</groupId>
+            <groupId>com.graphql-java</groupId>
             <artifactId>graphiql-spring-boot-starter</artifactId>
-            <version>${graphql.kickstart.version}</version>
+           <version>5.0.2</version>
             <scope>runtime</scope>
         </dependency>
 

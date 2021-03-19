@@ -4,7 +4,9 @@ package com.example.member.resolver;
 import com.example.member.entity.Member;
 import com.example.member.exception.CustomGraphQLException;
 import com.example.member.repository.MemberRepository;
-import graphql.kickstart.tools.GraphQLQueryResolver;
+//import graphql.kickstart.tools.GraphQLQueryResolver;
+import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

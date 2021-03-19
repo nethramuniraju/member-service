@@ -33,6 +33,7 @@ public class MemberService {
     public Member saveMember(Member member) {
         log.info("Inside saveMember of MemberService");
         member.setMemberId(service.getSequenceNumber(member.SEQUENCE_NAME));
+        member.setCreatedOn(LocalDate.now());
 
         return memberRepository.save(member);
     }
