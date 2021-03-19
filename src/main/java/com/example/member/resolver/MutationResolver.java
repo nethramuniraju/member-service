@@ -24,7 +24,7 @@ public class MutationResolver implements GraphQLMutationResolver {
     private ClaimsUtility claimsUtility;
     
     @Autowired
-    private ScalarConfig ScalarConfig;
+    private ScalarConfig scalarConfig;
 
     public String createMember(Member member, Claim claim) throws Exception {
 
